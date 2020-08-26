@@ -2,12 +2,13 @@
   "name": "tech-blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://priteesh2508.github.io/thegoyalsblog",
+  "homepage": "https://priteesh2508.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.19.0",
+    "gh-pages": "^3.1.0",
     "html-to-react": "^1.4.3",
     "lodash": "^4.17.20",
     "react": "^16.13.1",
@@ -26,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
