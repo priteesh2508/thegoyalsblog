@@ -1,0 +1,16 @@
+.hidden {
+    display: none;
+}
+
+.ui.button.hidden {
+    display: none;
+}
+
+.ui.comments .comment .comments
+{
+    padding-top: 0;
+}
+
+.ui.comments .comment .text {
+    margin-bottom: 0.25em;
+}
