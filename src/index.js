@@ -6,9 +6,9 @@ import reduxThunk from 'redux-thunk'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/analytics'
-import 'firebase/firestore' // <- needed if using firestore
+import 'firebase/firestore'
 import {ReactReduxFirebaseProvider} from 'react-redux-firebase'
-import { createFirestoreInstance } from 'redux-firestore' // <- needed if using firestore
+import { createFirestoreInstance } from 'redux-firestore'
 
 import App from './components/App.js';
 import reducers from './reducers';

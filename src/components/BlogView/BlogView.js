@@ -25,7 +25,7 @@ class BlogView extends React.Component {
                 vInstead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.
                 Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.
                 Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.
-                <img className="ui image" src="/default-photo.jpg" alt="default photo"/>
+                <img className="ui image" src="/wallpaper.png" alt="default photo"/>
                 <div className="ui card">
                     There is so much to tell
                 </div>
@@ -49,9 +49,9 @@ class BlogView extends React.Component {
         }
         return (
 
-            <div className="ui segments internally celled">
+            <div className="ui" style={{marginTop:"60px", marginBottom:"60px"}}>
                 <Helmet>
-                    <title>{this.props.blog.title} | TheGoyalsBlog</title>
+                    <title>{this.props.blog.title} | ThePGblog</title>
                     <meta name="description" content={this.props.blog.shortDesc}/>
                     <meta name="keywords" content={this.props.blog.tags}/>
                 </Helmet>

@@ -40,14 +40,15 @@ class Header extends React.Component{
     }
 
     renderMastHead = () => {
+        const title = (this.props.header.title) ? this.props.header.title : "ThePGblog";
         return (
             <div
                 ref = {this.mastHeadRef}
-                className="ui fluid inverted vertical masthead center aligned segment"
-                style={(this.props.header.headerImg)? {background:"url(" + this.props.header.headerImg + ") center no-repeat"}: {}}
+                className={`ui fluid ${(this.props.header.inverted === false)? '' : 'inverted'} vertical masthead center aligned segment`}
+                style={(this.props.header.headerImg)? {background:"url(" + this.props.header.headerImg + ") center no-repeat"}: {background:"url(/wallpaper.png) center no-repeat"}}
             >
                 <div className="ui container">
-                    <div className="ui large inverted secondary pointing menu" style={{backgroundColor: "dark-grey"}}>
+                    <div className={`ui large ${(this.props.header.inverted === false)? '' : 'inverted'} secondary pointing menu`} style={{backgroundColor: "dark-grey"}}>
                         <Link to="/" className="item">
                             Home
                         </Link>
@@ -63,8 +64,8 @@ class Header extends React.Component{
                 </div>
 
                 <div className="ui text container">
-                    <Link to="/"><h1 className="ui inverted header">
-                        TheGoyalsBlog
+                    <Link to="/"><h1 className={`ui ${(this.props.header.inverted === false)? '' : 'inverted'} header`}>
+                        {title}
                     </h1></Link>
                     <h2>A deep dive into my brain's weird wirings!</h2>
                 </div>
@@ -77,7 +78,7 @@ class Header extends React.Component{
             <div className={`ui inverted top large fixed menu relaxed ${(this.state.hideHeader)? 'hidden': ''}`} style={{position: "sticky", top:"0", zIndex:"10"}}>
                 <div className="ui container">
                     <div className="item">
-                        <h3 className="item">TheGoyalsBlog</h3>
+                        <h3 className="item">ThePGblog</h3>
                     </div>
                     <Link to="/" className="item">
                         Home

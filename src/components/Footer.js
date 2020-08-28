@@ -11,6 +11,7 @@ const Footer = () => {
                         <a href="https://www.facebook.com/priteesh.goyal" rel='noreferrer noopener' target="_blank" className="item"><i className="facebook large icon item"/></a>
                         <a href="https://www.instagram.com/priteesh2508/" rel='noreferrer noopener' target="_blank" className="item"><i className="instagram large icon item"/></a>
                         <a href="https://twitter.com/priteesh2508" rel='noreferrer noopener' target="_blank" className="item"><i className="twitter large icon item"/></a>
+                        <a href="https://www.linkedin.com/in/priteeshgoyal" rel='noreferrer noopener' target="_blank" className="item"><i className="linkedin large icon item"/></a>
                         <a href="mailto:priteesh2508@gmail.com" rel='noreferrer noopener' target="_blank" className="item"><i className="envelope outline large icon"/></a>
                     </div>
                     <div className="ui inverted divider"/>
