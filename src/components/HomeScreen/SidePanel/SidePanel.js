@@ -6,7 +6,7 @@ import FollowersPanel from "./FollowersPanel";
 
 const SidePanel = () => {
     return (
-        <div className="ui cards sticky segment" style={{border:"0px"}}>
+        <div className="ui cards sticky segment" style={{border:"0", boxShadow: "none"}}>
             <div className="ui card" style={{border: "2px solid black"}}>
                 <Link to="/subscribe" className="huge ui button" style={{color:"red"}}>
                     Subscribe now to get mail notification on every new post!

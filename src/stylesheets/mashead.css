@@ -23,3 +23,11 @@
     font-size: 1.7em;
     font-weight: normal;
 }
+
+.ui.secondary.inverted.pointing.menu {
+    border-width: 0
+}
+
+.ui.inverted.menu .item:before {
+    background: none;
+}

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import BlogCard from "./BlogCard";
+import _ from "lodash";
 
 class BlogList extends React.Component {
 
@@ -31,7 +32,7 @@ class BlogList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {blogs: state.firestore.ordered.blogs}
+    return {blogs: _.sortBy(state.firestore.ordered.blogs, 'timestamp').reverse()}
 };
 
 export default compose(firestoreConnect(() => ['blogs']), connect(mapStateToProps))(BlogList);

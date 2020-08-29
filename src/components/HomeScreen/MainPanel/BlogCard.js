@@ -24,8 +24,10 @@ class BlogCard extends React.Component {
                     <div className="description">{blog.shortDesc}</div>
                 </Link>
                 <Link to={`/blog/${blog.id}`} className="extra content">
-                    <i className="comments icon"/>
-                    15 comments
+                    <i className="heart outline icon"/>
+                    {this.props.blog.likes.length} likes&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i className="comment icon"/>
+                    {(!this.props.blog.comments)? '0': Object.keys(this.props.blog.comments).length} comments
                 </Link>
             </div>
         )

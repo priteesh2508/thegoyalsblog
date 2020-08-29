@@ -41,9 +41,9 @@ class BlogMeta extends React.Component{
         if(this.props.blog.likes.length === 0) {
             return 'Be the first to like this post'
         } else if (this.props.blog.likes.length === 1) {
-            return `Liked by ${this.props.blog.likes[0].userName}`
+            return `Liked by ${this.props.blog.likes[this.props.blog.likes.length-1].userName}`
         } else {
-            return `Liked by ${this.props.blog.likes[0].userName} and ${this.props.blog.likes.length -1} others`
+            return `Liked by ${this.props.blog.likes[this.props.blog.likes.length-1].userName} and ${this.props.blog.likes.length -1} others`
         }
     };
 

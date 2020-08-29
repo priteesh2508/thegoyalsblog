@@ -27,8 +27,31 @@ class Comments extends React.Component{
         }
     }
 
+    onDeleteClick = (commentId, replyId) => {
+        if (!replyId) {
+            this.props.firestore.set({collection: "blogs", doc: this.props.blogId}, {
+                ...this.props.blog,
+                comments: _.omit(this.props.blog.comments, commentId)
+            });
+        } else {
+            const replies = this.props.blog.comments[commentId].replies.filter((reply) =>
+                 reply.id !== replyId
+            );
+            this.props.firestore.set({collection: "blogs", doc: this.props.blogId}, {
+                ...this.props.blog,
+                comments: {
+                    ...this.props.blog.comments,
+                    [commentId]: {
+                        ...this.props.blog.comments[commentId],
+                        replies: replies
+                    }
+                }
+            });
+        }
+    };
 
-    renderReplies = (comment) => {
+
+    renderReplies = (comment, commentId) => {
         return comment.replies.map((reply) => {
             return (
                 <div key={reply.id} className="comment replycomment">
@@ -43,6 +66,9 @@ class Comments extends React.Component{
                         <div className="text">
                             <p>{reply.body}</p>
                         </div>
+                        <div className="actions">
+                            <a className="reply" onClick={() => this.onDeleteClick(commentId, reply.id)}>Delete</a>
+                        </div>
                     </div>
                 </div>
             )
@@ -50,6 +76,9 @@ class Comments extends React.Component{
     };
 
     renderComments = () => {
+        if (!this.props.blog.comments) {
+            return null;
+        }
         return Object.entries(this.props.blog.comments).map(([commentId, comment]) => {
             return (
                 <div key={commentId} className="comment">
@@ -66,6 +95,7 @@ class Comments extends React.Component{
                         </div>
                         <div className="actions">
                             <a className="reply" onClick={() => this.onReplyClick(commentId)}>Reply</a>
+                            <a className="reply" onClick={() => this.onDeleteClick(commentId)}>Delete</a>
                         </div>
                     </div>
                     <div className="comments">
@@ -85,7 +115,7 @@ class Comments extends React.Component{
             this.setState({showModal:true});
         } else {
             let id;
-            if (!this.props.blog.comments) {
+            if (!this.props.blog.comments.hasOwnProperty(1)) {
                 id = 1;
             } else {
                 id = Math.max(...Object.keys(this.props.blog.comments)) + 1;
@@ -152,7 +182,7 @@ class Comments extends React.Component{
                 this.setState({replyFor: commentId})
             }
         }
-    }
+    };
 
     renderCommentForm = () => {
         const showCommentForm = this.state.replyFor === null;
@@ -183,9 +213,9 @@ class Comments extends React.Component{
         return (
             <div className="ui comments">
                 <h3 className="ui dividing header">Comments</h3>
-                {this.renderCommentForm()}
                 {this.renderComments()}
                 {this.showModal()}
+                {this.renderCommentForm()}
             </div>
         )
     }
