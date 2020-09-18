@@ -40,7 +40,7 @@ class Header extends React.Component{
     }
 
     renderMastHead = () => {
-        const title = (this.props.header.title) ? this.props.header.title : "ThePGblog";
+        const title = (this.props.header.title) ? this.props.header.title : "PriteeshPosts";
         return (
             <div
                 ref = {this.mastHeadRef}
@@ -78,7 +78,9 @@ class Header extends React.Component{
             <div className={`ui inverted top large fixed menu relaxed ${(this.state.hideHeader)? 'hidden': ''}`} style={{position: "sticky", top:"0", zIndex:"10"}}>
                 <div className="ui container">
                     <div className="item">
-                        <h3 className="item">ThePGblog</h3>
+                        <Link to="/">
+                            <h3 className="item">PriteeshPosts</h3>
+                        </Link>
                     </div>
                     <Link to="/" className="item">
                         Home

@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import BlogView from "./BlogView/BlogView";
 import ComingSoon from "./ComingSoon";
 import AboutMe from "./AboutMe";
+import TestBench from "./TestBench";
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path="/about-me" exact component={AboutMe}/>
                     <Route path="/subscribe" exact component={ComingSoon}/>
                     <Route path="/blog/:id" exact component={BlogView}/>
+                    <Route path="/test/new/blog" exact component={TestBench} />
                 </div>
                 <Footer/>
             </Router>
